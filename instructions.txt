@@ -1,0 +1,5 @@
+1. conda activate mppt_smu
+2. cd to the GitHub folder
+3. make sure to install NI VISA (for the visa): https://www.ni.com/en/support/downloads/drivers/download.ni-visa.html, and locate where the visa n4.dll file is. in this case: "C:\\Windows\\System32\\visa64.dll"
+4. to activate the dummy: python mppTracker.py GPIB0::24::INSTR 10 120 --dummy
+5. for other arg parser, take a look at the mppTracker.py file
