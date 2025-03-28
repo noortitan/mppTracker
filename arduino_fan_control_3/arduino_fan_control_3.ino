@@ -92,8 +92,15 @@ void handleFanCommand(String command) {
     speed = map(constrain(speed, 0, 100), 0, 100, 0, 255);
 
     if (command.startsWith("BACK")) {
-        analogWrite(BACK_FAN, speed);
-        Serial.println("BACK fan set to " + String(speed));
+        if (speed < 26) {
+          Serial.println("BACK FAN SPEED CAN'T BE < 11%!");
+          analogWrite(BACK_FAN,26);
+        }
+        else {
+          analogWrite(BACK_FAN, speed);
+          Serial.println("BACK fan set to " + String(speed));
+        }
+        
     } else if (command.startsWith("FRONT1")) {
         analogWrite(FRONT_FAN1, speed);
         Serial.println("FRONT1 fan set to " + String(speed));
